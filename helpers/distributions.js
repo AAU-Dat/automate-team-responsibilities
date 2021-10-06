@@ -39,9 +39,9 @@ function determineDistribution(team, responsibilities) {
         } else {
             distribution.push({
                 title: responsibility.name,
-                member: team.splice(number % team.length, 1)[0]
+                member: team[number % team.length]
             })
-            number++;
+            number += 2;
         }
     })
 
