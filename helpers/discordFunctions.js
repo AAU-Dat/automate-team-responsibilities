@@ -31,7 +31,6 @@ function buildDiscordEmbed(distribution) {
     distribution.forEach(responsibility => {
         embed.addField(responsibility.title, responsibility.member, true);
     })
-    embed.title
 };
 
 function postToDiscord(embed, webhook) {
