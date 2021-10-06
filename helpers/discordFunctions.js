@@ -26,12 +26,13 @@ function buildDiscordEmbed(distribution) {
         .setDescription(`Who has which responsibility for ${WEEK.start} to ${WEEK.end}`)
         .setColor(AAU_BLUE)
         .setAuthor("AAU-dat", AAU_ICON, ORGANIZATION)
-        .setFooter("Automated team responsibilities github action.")
+        .setFooter("Automated team responsibilities github action.");
 
     distribution.forEach(responsibility => {
-        console.log(responsibility.title, responsibility.member);
         embed.addField(responsibility.title, responsibility.member, true);
     })
+
+    return embed;
 };
 
 function postToDiscord(embed, webhook) {
