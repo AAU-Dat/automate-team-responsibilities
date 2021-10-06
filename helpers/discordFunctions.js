@@ -29,6 +29,7 @@ function buildDiscordEmbed(distribution) {
         .setFooter("Automated team responsibilities github action.")
 
     distribution.forEach(responsibility => {
+        console.log(responsibility.title, responsibility.member);
         embed.addField(responsibility.title, responsibility.member, true);
     })
 };
