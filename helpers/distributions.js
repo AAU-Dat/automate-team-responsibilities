@@ -1,4 +1,4 @@
-export function partiallyRandomDistribution(team, responsibilities) {
+function partiallyRandomDistribution(team, responsibilities) {
     if (team.length < 2) throw new Error("You need a larger team");
     const number = process.env.GITHUB_RUN_NUMBER;
 
@@ -21,3 +21,5 @@ export function partiallyRandomDistribution(team, responsibilities) {
 
     return distribution;
 }
+
+module.exports = { partiallyRandomDistribution }

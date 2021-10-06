@@ -1,4 +1,4 @@
-export function getWeekStartAndEnd() {
+function getWeekStartAndEnd() {
     const today = new Date();
     const weekend = new Date();
     weekend.setDate(weekend.getDate() + 6);
@@ -8,3 +8,5 @@ export function getWeekStartAndEnd() {
         end: weekend.toDateString()
     }
 }
+
+module.exports = { getWeekStartAndEnd }

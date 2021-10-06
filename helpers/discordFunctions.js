@@ -20,7 +20,7 @@ function breakDiscordWebhook(webhook) {
     return { id: array[length - 2], token: array[length - 1] };
 };
 
-export function buildDiscordEmbed(distribution) {
+function buildDiscordEmbed(distribution) {
     const embed = new Discord.MessageEmbed()
         .setTitle("New distribution of responsibilities")
         .setDescription(`Who has which responsibility for ${WEEK.start} to ${WEEK.end}`)
@@ -34,7 +34,7 @@ export function buildDiscordEmbed(distribution) {
     embed.title
 };
 
-export function postToDiscord(embed, webhook) {
+function postToDiscord(embed, webhook) {
     const { id, token } = breakDiscordWebhook(webhook);
     const webhookClient = new Discord.WebhookClient(id, token);
 
@@ -49,3 +49,4 @@ export function postToDiscord(embed, webhook) {
     webhookClient.destroy();
 };
 
+module.exports = { buildDiscordEmbed, postToDiscord }
