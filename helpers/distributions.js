@@ -34,7 +34,7 @@ function determineDistribution(team, responsibilities) {
         if (responsibility.random) {
             distribution.push({
                 title: responsibility.name,
-                member: team[Math.random() * team.length]
+                member: team[(Math.random() * team.length) % team.length]
             })
         } else {
             distribution.push({
