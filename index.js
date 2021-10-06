@@ -9,7 +9,12 @@ try {
   const responsibilities = JSON.parse(core.getInput('responsibilities'));
   const discordWebhook = core.getInput('discord-webhook');
 
+  console.log(JSON.stringify(team));
+  console.log(JSON.stringify(responsibilities));
+
   const distribution = partiallyRandomDistribution(team, responsibilities);
+
+  console.log(JSON.stringify(distribution));
   const embed = buildDiscordEmbed(distribution);
 
   postToDiscord(embed, discordWebhook);
