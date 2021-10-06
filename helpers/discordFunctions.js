@@ -28,7 +28,7 @@ function buildDiscordEmbed(distribution) {
         .setAuthor("AAU-dat", AAU_ICON, ORGANIZATION)
         .setFooter("Automated team responsibilities github action.")
 
-    distribution.foreach(responsibility => {
+    distribution.forEach(responsibility => {
         embed.addField(responsibility.title, responsibility.member, true);
     })
     embed.title
