@@ -21,7 +21,7 @@ function breakDiscordWebhook(webhook) {
 };
 
 function buildDiscordEmbed(distribution) {
-    const embed = new Discord.MessageEmbed()
+    let embed = new Discord.MessageEmbed()
         .setTitle("New distribution of responsibilities")
         .setDescription(`Who has which responsibility for ${WEEK.start} to ${WEEK.end}`)
         .setColor(AAU_BLUE)

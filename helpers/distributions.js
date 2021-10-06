@@ -1,6 +1,6 @@
 function partiallyRandomDistribution(team, responsibilities) {
     if (team.length < 2) throw new Error("You need a larger team");
-    const number = process.env.GITHUB_RUN_NUMBER;
+    let number = process.env.GITHUB_RUN_NUMBER;
 
     let distribution = [];
 
