@@ -3,11 +3,9 @@ const { getWeekStartAndEnd } = require("./date")
 
 const WEEK = getWeekStartAndEnd();
 const AAU_BLUE = "#211a52";
-const AAU_ICON =
-    "https://media-exp1.licdn.com/dms/image/C510BAQHgfIxjqWSSsQ/company-logo_200_200/0/1519855922416?e=2159024400&v=beta&t=_L2XLMCXeEzSX_c8oBMM_uuEK1kgfno7ViFJXD5BP6U";
+const AAU_ICON = "https://media-exp1.licdn.com/dms/image/C510BAQHgfIxjqWSSsQ/company-logo_200_200/0/1519855922416?e=2159024400&v=beta&t=_L2XLMCXeEzSX_c8oBMM_uuEK1kgfno7ViFJXD5BP6U";
 const ORGANIZATION = "https://github.com/AAU-Dat";
-const OCTOCAT =
-    "https://api.iconify.design/octicon/mark-github-16.svg";
+const GITHUB_ICON = "https://avatars.githubusercontent.com/u/86346038?s=200&v=4"
 
 function breakDiscordWebhook(webhook) {
     const array = webhook.split("/");
@@ -43,7 +41,7 @@ function postToDiscord(embed, webhook) {
     webhookClient
         .send({
             username: "Github Action",
-            avatarURL: OCTOCAT,
+            avatarURL: GITHUB_ICON,
             embeds: [embed],
         })
         .catch(console.error);
