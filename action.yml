@@ -1,0 +1,19 @@
+name: 'Automate team responsibilities'
+description: 'Automatically determine the responsibilities for a team for a given period, typically a week'
+inputs:
+  team:
+    description: 'A list of the team members that can have responsibilities'
+    required: true
+  responsibilities:
+    description: 'A list of responsibilities and how many members should handle it'
+    required: true
+    default: '[{"name": "Scrum master, "number": 2}]'
+  discord-webhook:
+    description: 'The Discord webhook that receives the responsibilities'
+    required: false
+outputs:
+  responsibility-distribution: # id of output
+    description: 'A comma separated list of person: resonsibility'
+runs:
+  using: 'node12'
+  main: 'index.js'
