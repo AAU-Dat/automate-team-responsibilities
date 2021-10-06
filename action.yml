@@ -7,7 +7,7 @@ inputs:
   responsibilities:
     description: 'A list of responsibilities and how many members should handle it'
     required: true
-    default: '[{"name": "Scrum master, "number": 2}]'
+    default: '[{"name": "Scrum master, "random": false}]'
   discord-webhook:
     description: 'The Discord webhook that receives the responsibilities'
     required: false
