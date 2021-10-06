@@ -31,6 +31,10 @@ function buildDiscordEmbed(distribution) {
         embed.addField(responsibility.title, responsibility.member, true);
     })
 
+    while (embed.fields.length % 3 !== 0){
+        embed.addField("\u200B", "\u200B", true);
+    }
+
     return embed;
 };
 
