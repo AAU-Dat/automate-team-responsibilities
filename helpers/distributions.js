@@ -1,3 +1,4 @@
+// deprecated, saved for posterity.
 function partiallyRandomDistribution(team, responsibilities) {
     if (team.length < 2) throw new Error("You need a larger team");
     let number = process.env.GITHUB_RUN_NUMBER;
@@ -22,4 +23,29 @@ function partiallyRandomDistribution(team, responsibilities) {
     return distribution;
 }
 
-module.exports = { partiallyRandomDistribution }
+function determineDistribution(team, responsibilities) {
+    if (team.length < 2) throw new Error("You need a larger team");
+    if (team.length < responsibilities.length) throw new Error("You must have more team members than responsibilities")
+
+    let number = process.env.GITHUB_RUN_NUMBER;
+    let distribution = [];
+
+    responsibilities.forEach(responsibility => {
+        if (responsibility.random) {
+            distribution.push({
+                title: responsibility.name,
+                member: team[Math.random() * team.length]
+            })
+        } else {
+            distribution.push({
+                title: responsibility.name,
+                member: team.splice(number % team.length, 1)[0]
+            })
+            number++;
+        }
+    })
+
+    return distribution;
+}
+
+module.exports = { determineDistribution }

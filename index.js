@@ -1,6 +1,6 @@
 const core = require('@actions/core');
 const { buildDiscordEmbed, postToDiscord } = require("./helpers/discordFunctions");
-const { partiallyRandomDistribution } = require("./helpers/distributions")
+const { determineDistribution } = require("./helpers/distributions")
 
 try {
   // input defined in action metadata file
@@ -8,7 +8,7 @@ try {
   const responsibilities = JSON.parse(core.getInput('responsibilities'));
   const discordWebhook = core.getInput('discord-webhook');
 
-  const distribution = partiallyRandomDistribution(team, responsibilities);
+  const distribution = determineDistribution(team, responsibilities);
   const embed = buildDiscordEmbed(distribution);
 
   postToDiscord(embed, discordWebhook);
